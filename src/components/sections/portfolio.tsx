@@ -8,12 +8,12 @@ import ClickSpark from '@/components/click-spark';
 import TiltedCard from '../tilted-card';
 
 const projects = [
-  { id: 1, title: 'FinTech Dashboard', category: 'Web', tags: ['React', 'Node.js', 'MongoDB'], description: 'A modern fintech platform that simplifies payment processing for small businesses.', image: 'https://placehold.co/600x400', dataAiHint: 'fintech dashboard' },
-  { id: 2, title: 'Fitness App', category: 'App', tags: ['React Native', 'Firebase', 'ML Kit'], description: 'A fitness tracking app that provides personalized workout plans and nutrition guidance.', image: 'https://placehold.co/600x400', dataAiHint: 'fitness app' },
-  { id: 3, title: 'Eco Fashion Brand', category: 'Branding', tags: ['Shopify', 'Branding', 'SEO'], description: 'A sustainable fashion brand with an e-commerce platform focused on eco-friendly products.', image: 'https://placehold.co/600x400', dataAiHint: 'fashion brand' },
-  { id: 4, title: 'Real Estate Platform', category: 'Web', tags: ['Vue.js', 'Django', 'PostgreSQL'], description: 'A real estate platform that connects property owners with potential buyers and renters.', image: 'https://placehold.co/600x400', dataAiHint: 'real estate' },
-  { id: 5, title: 'Food Delivery App', category: 'App', tags: ['Flutter', 'Firebase', 'Google Maps API'], description: 'A food delivery app that connects local restaurants with hungry customers in their area.', image: 'https://placehold.co/600x400', dataAiHint: 'food delivery' },
-  { id: 6, title: 'Educational Platform', category: 'Web', tags: ['Next.js', 'Express', 'AWS'], description: 'An online learning platform that offers courses in technology, business, and creative fields.', image: 'https://placehold.co/600x400', dataAiHint: 'learning platform' },
+  { id: 1, title: 'Clat Community', category: 'Web', tags: ['React', 'Node.js', 'MongoDB'], description: 'A comprehensive platform for CLAT aspirants with study materials, mock tests, and community features.', image: '/assets/clatcommunity.png', dataAiHint: 'education platform', url: 'https://clatcommunity.com' },
+  { id: 2, title: 'Clat AI', category: 'AI', tags: ['AI/ML', 'Python', 'React'], description: 'An AI-powered platform for CLAT preparation with intelligent study recommendations and personalized learning paths.', image: '/assets/clatai.png', dataAiHint: 'ai platform', url: 'https://clatai.onrender.com' },
+  { id: 3, title: 'Boltabacus', category: 'Web', tags: ['Next.js', 'TypeScript', 'Tailwind'], description: 'A modern web application with innovative features and cutting-edge technology stack.', image: '/assets/boltabacus.png', dataAiHint: 'web application', url: 'https://boltabacus.com' },
+  { id: 4, title: 'Sanjeev Kaliwala', category: 'Web', tags: ['React', 'Node.js', 'MongoDB'], description: 'A professional portfolio and business website showcasing expertise and services.', image: '/assets/image1.jpg', dataAiHint: 'portfolio website', url: 'https://sanjeevkaliwala.com' },
+  { id: 5, title: 'Xperio', category: 'App & Web', tags: ['React Native', 'Next.js', 'Firebase'], description: 'A comprehensive mobile app and web platform with cross-platform functionality and modern design.', image: '/assets/image2.png', dataAiHint: 'mobile app and website' },
+  { id: 6, title: 'Government Projects', category: 'Enterprise', tags: ['Confidential', 'Enterprise', 'Security'], description: 'Confidential government projects with high-security requirements and specialized implementations.', image: '/assets/image3.png', dataAiHint: 'government projects' },
 ];
 
 const PortfolioSection = () => {
@@ -42,7 +42,16 @@ const PortfolioSection = () => {
           <TabsContent value={filter}>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map(project => (
-                  <div key={project.id} className="cursor-target">
+                  <div 
+                    key={project.id} 
+                    className="cursor-target"
+                    onClick={() => {
+                      if (project.url) {
+                        window.open(project.url, '_blank', 'noopener,noreferrer');
+                      }
+                    }}
+                    style={{ cursor: project.url ? 'pointer' : 'default' }}
+                  >
                     <TiltedCard
                       imageSrc={project.image}
                       altText={project.title}

@@ -91,17 +91,17 @@ const ContactSection = () => {
           <div className="space-y-8">
             <h3 className="text-2xl font-bold font-headline text-primary">Contact Information</h3>
             <div className="space-y-4 text-lg">
-               <div className="flex space-x-4">
-                <MapPin className="h-6 w-6 text-primary mt-1" />
-                <span>Hyderabad, Telangana<br />India</span>
+               <div className="flex items-start space-x-2">
+                <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <span className="flex-1">Hyderabad, Telangana, India</span>
               </div>
-              <div className="flex items-center space-x-4">
-                <Mail className="h-6 w-6 text-primary" />
-                <span>tarsnetworks@gmail.com</span>
+              <div className="flex items-center space-x-2">
+                <Mail className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="flex-1">tarsnetworks@gmail.com</span>
               </div>
-              <div className="flex space-x-4">
-                <Phone className="h-6 w-6 text-primary mt-1" />
-                <span>+91 93682 03872 /<br/>+91 93980 97742</span>
+              <div className="flex items-start space-x-2">
+                <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <span className="flex-1">+91 93682 03872 / +91 93980 97742</span>
               </div>
             </div>
             <div>

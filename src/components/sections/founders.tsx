@@ -4,10 +4,10 @@ import ProfileCard from '../profile-card';
 
 const founders = [
   {
-    name: 'Yashwanth Devulapally',
+    name: 'Yashwanth D',
     title: 'Co-founder & CEO',
     handle: 'yashwanth-devulapally',
-    avatarUrl: '/assets/yashwanth.jpg',
+    avatarUrl: '/assets/team1.jpg',
     dataAiHint: 'male founder portrait',
     linkedin: 'https://www.linkedin.com/in/yashwanth-devulapally/',
   },
@@ -15,7 +15,7 @@ const founders = [
     name: 'Ayush Parashar',
     title: 'Founder & CMO',
     handle: 'ayush-parashar',
-    avatarUrl: '/assets/ayush.jpg',
+    avatarUrl: '/assets/team2.jpg',
     dataAiHint: 'male founder portrait',
     linkedin: 'https://www.linkedin.com/in/ayush-parashar-7b3218239/',
   },
@@ -23,7 +23,7 @@ const founders = [
     name: 'Asvaan Zuhair',
     title: 'CTO',
     handle: 'asvaan-zuhair',
-    avatarUrl: '/assets/asvaan.jpg',
+    avatarUrl: '/assets/team3.jpg',
     dataAiHint: 'male founder portrait',
     linkedin: 'https://www.linkedin.com/in/asvaan-zuhair-29b390336/',
   },

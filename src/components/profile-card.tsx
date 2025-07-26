@@ -313,6 +313,10 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       className={`pc-card-wrapper ${className}`.trim()}
       style={cardStyle}
     >
+      <div className="pc-name-overlay">
+        <h3>{name}</h3>
+        <p>{title}</p>
+      </div>
       <section ref={cardRef} className="pc-card">
         <div className="pc-inside">
           <div className="pc-shine" />
@@ -359,12 +363,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 </button>
               </div>
             )}
-          </div>
-          <div className="pc-content">
-            <div className="pc-details">
-              <h3>{name}</h3>
-              <p>{title}</p>
-            </div>
           </div>
         </div>
       </section>

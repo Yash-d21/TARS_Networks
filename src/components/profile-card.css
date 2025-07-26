@@ -176,6 +176,40 @@
   z-index: 4;
 }
 
+.pc-name-overlay {
+  position: absolute;
+  top: 1.2em;
+  left: 0;
+  right: 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+  padding: 0 1em;
+}
+
+.pc-name-overlay h3 {
+  font-weight: 700;
+  margin: 0;
+  font-size: min(5svh, 3em);
+  color: #000000;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.pc-name-overlay p {
+  font-weight: 600;
+  position: relative;
+  top: -12px;
+  white-space: nowrap;
+  font-size: 16px;
+  margin: 0 auto;
+  width: min-content;
+  color: #000000;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
 .pc-avatar-content {
   mix-blend-mode: screen;
   overflow: hidden;
@@ -291,40 +325,7 @@
   mix-blend-mode: luminosity;
 }
 
-.pc-details {
-  width: 100%;
-  position: absolute;
-  top: 3em;
-  display: flex;
-  flex-direction: column;
-}
 
-.pc-details h3 {
-  font-weight: 600;
-  margin: 0;
-  font-size: min(5svh, 3em);
-  margin: 0;
-  background-image: linear-gradient(to bottom, #fff, #6f6fbe);
-  background-size: 1em 1.5em;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.pc-details p {
-  font-weight: 600;
-  position: relative;
-  top: -12px;
-  white-space: nowrap;
-  font-size: 16px;
-  margin: 0 auto;
-  width: min-content;
-  background-image: linear-gradient(to bottom, #fff, #4a4ac0);
-  background-size: 1em 1.5em;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
 
 @keyframes glow-bg {
   0% {
@@ -352,15 +353,15 @@
     max-height: 450px;
   }
 
-  .pc-details {
-    top: 2em;
+  .pc-name-overlay {
+    top: 1.2em;
   }
 
-  .pc-details h3 {
+  .pc-name-overlay h3 {
     font-size: min(4svh, 2.5em);
   }
 
-  .pc-details p {
+  .pc-name-overlay p {
     font-size: 14px;
   }
 
@@ -400,15 +401,15 @@
     max-height: 380px;
   }
 
-  .pc-details {
-    top: 1.5em;
+  .pc-name-overlay {
+    top: 1.2em;
   }
 
-  .pc-details h3 {
+  .pc-name-overlay h3 {
     font-size: min(3.5svh, 2em);
   }
 
-  .pc-details p {
+  .pc-name-overlay p {
     font-size: 12px;
     top: -8px;
   }
@@ -451,11 +452,11 @@
     max-height: 320px;
   }
 
-  .pc-details h3 {
+  .pc-name-overlay h3 {
     font-size: min(3svh, 1.5em);
   }
 
-  .pc-details p {
+  .pc-name-overlay p {
     font-size: 11px;
   }
 

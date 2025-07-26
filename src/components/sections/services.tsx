@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Code2, Smartphone, Megaphone, University, Handshake, Cpu } from 'lucide-react';
+import { Code2, Smartphone, Megaphone, University, Handshake, Cpu, Palette, Zap } from 'lucide-react';
+import MagicBento from '../magic-bento';
 
 const services = [
   {
@@ -29,9 +30,11 @@ const services = [
   },
   {
     icon: Cpu,
-    title: 'AI Agents and Algorithms',
+    title: 'AI Automation & Integrations',
     description: 'Development of intelligent agents and custom algorithms to automate processes and provide data-driven insights.'
-  }
+  },
+
+
 ];
 
 const ServicesSection = () => {
@@ -44,20 +47,25 @@ const ServicesSection = () => {
             We offer a comprehensive suite of services designed to help startups at every stage of their journey, from ideation to market expansion.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="reflective-card text-center hover:shadow-primary/20 hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto bg-accent text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                  <service.icon className="w-8 h-8" />
-                </div>
-                <CardTitle className="font-headline">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{service.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <MagicBento 
+            textAutoHide={true}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            spotlightRadius={300}
+            particleCount={12}
+            glowColor="132, 0, 255"
+            customData={services.map((service, index) => ({
+              color: "#060010",
+              title: service.title,
+              description: service.description,
+              label: service.title.split(' ')[0], // Use first word as label
+            }))}
+          />
         </div>
       </div>
     </section>

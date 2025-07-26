@@ -43,11 +43,11 @@ const HeroSection = () => {
                     <p className="text-lg md:text-xl text-muted-foreground">
                         Your trusted partner in building successful tech ventures. We provide the tools, expertise, and network to transform your ideas into thriving businesses.
                     </p>
-                    <div className="flex items-center justify-center md:justify-start gap-4">
-                        <Button size="lg" asChild className="cursor-target">
+                    <div className="flex items-center justify-center md:justify-start">
+                        <Button size="lg" asChild className="cursor-target rounded-r-none">
                             <Link href="#contact">Apply Now</Link>
                         </Button>
-                        <Button size="lg" variant="secondary" asChild className="cursor-target">
+                        <Button size="lg" variant="secondary" asChild className="cursor-target rounded-l-none">
                             <Link href="#about">Learn More</Link>
                         </Button>
                     </div>

@@ -3,27 +3,16 @@
 import CircularGallery from '../circular-gallery';
 
 const testimonials = [
-  {
-    quote: "Working with TARS Networks was a game-changer for our startup. Their technical expertise and strategic guidance helped us build a product that our users love. Within six months of launch, we secured our first round of funding.",
-    name: 'Pranav Sharma',
-    role: 'Co-founder, TechVista Solutions',
-    image: 'https://placehold.co/800x600',
-    dataAiHint: 'portrait person'
-  },
-  {
-    quote: "The team at TARS Networks understood our vision from day one. They helped us refine our concept, build an incredible app, and create a marketing strategy that resonated with our target audience. We couldn't be happier with the results.",
-    name: 'Anirudh Sharma',
-    role: 'CTO, CloudNine Analytics',
-    image: 'https://placehold.co/800x600',
-    dataAiHint: 'portrait person'
-  },
-  {
-    quote: "As a non-technical founder, I was worried about building an e-commerce platform. TARS Networks made the process seamless and enjoyable. Their branding expertise helped us stand out in a crowded market, and sales have exceeded our projections.",
-    name: 'Shreyash Chintalwar',
-    role: 'COO, InnovatePro Solutions',
-    image: 'https://placehold.co/800x600',
-    dataAiHint: 'portrait person'
-  }
+  { image: '/assets/1.png' },
+  { image: '/assets/2.png' },
+  { image: '/assets/3.png' },
+  { image: '/assets/4.png' },
+  { image: '/assets/5.png' },
+  { image: '/assets/6.png' },
+  { image: '/assets/7.png' },
+  { image: '/assets/8.png' },
+  { image: '/assets/9.png' },
+  { image: '/assets/10.png' }
 ];
 
 const galleryItems = testimonials.map(t => ({ image: t.image, text: '' }));

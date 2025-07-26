@@ -15,24 +15,24 @@ import ProfileCard from '@/components/profile-card';
 
 const founders = [
   {
-    name: 'Yashwanth Devulapally',
+    name: 'Yashwanth D',
     title: 'Co-founder & CEO',
     handle: 'yashwanth-devulapally',
-    avatarUrl: '/yashwanth.jpg',
+    avatarUrl: '/assets/yashwanth.jpg',
     linkedin: 'https://www.linkedin.com/in/yashwanth-devulapally/',
   },
   {
     name: 'Ayush Parashar',
     title: 'Founder & CMO',
     handle: 'ayush-parashar',
-    avatarUrl: '/ayush.jpg',
+    avatarUrl: '/assets/ayush.jpg',
     linkedin: 'https://www.linkedin.com/in/ayush-parashar-7b3218239/',
   },
   {
     name: 'Asvaan Zuhair',
     title: 'CTO',
     handle: 'asvaan-zuhair',
-    avatarUrl: '/asvaan.jpg',
+    avatarUrl: '/assets/asvaan.png',
     linkedin: 'https://www.linkedin.com/in/asvaan-zuhair-29b390336/',
   },
 ];
