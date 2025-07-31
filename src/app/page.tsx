@@ -16,14 +16,14 @@ import ProfileCard from '@/components/profile-card';
 const founders = [
   {
     name: 'Yashwanth D',
-    title: 'Co-founder & CEO',
+    title: 'Founder & CEO',
     handle: 'yashwanth-devulapally',
     avatarUrl: '/assets/yashwanth.jpg',
     linkedin: 'https://www.linkedin.com/in/yashwanth-devulapally/',
   },
   {
     name: 'Ayush Parashar',
-    title: 'Founder & CMO',
+    title: 'Co-founder & CMO',
     handle: 'ayush-parashar',
     avatarUrl: '/assets/ayush.jpg',
     linkedin: 'https://www.linkedin.com/in/ayush-parashar-7b3218239/',
