@@ -1,48 +1,21 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Twitter, Linkedin, Github } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import MagnetLines from "@/components/magnet-lines";
-
-const formSchema = z.object({
-  fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500),
-  consent: z.boolean().refine(val => val === true, { message: "You must agree to the terms." }),
-});
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      subject: "",
-      message: "",
-      consent: false,
-    },
-  });
+  const [embedDomain, setEmbedDomain] = useState("localhost");
+  const isMobile = useIsMobile(640);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
-    });
-    form.reset();
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setEmbedDomain(window.location.hostname || "localhost");
+    }
+  }, []);
 
   return (
     <section id="contact" className="bg-background">
@@ -57,34 +30,27 @@ const ContactSection = () => {
         <div className="grid md:grid-cols-2 gap-12">
           <Card>
             <CardHeader>
-              <CardTitle className="font-headline">Send us a Message</CardTitle>
+              <CardTitle className="font-headline">Schedule a Call</CardTitle>
             </CardHeader>
             <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField control={form.control} name="fullName" render={({ field }) => (
-                    <FormItem><FormLabel>Full Name</FormLabel><FormControl><Input placeholder="Your name" {...field} className="cursor-target"/></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={form.control} name="email" render={({ field }) => (
-                    <FormItem><FormLabel>Email Address</FormLabel><FormControl><Input type="email" placeholder="Your email" {...field} className="cursor-target"/></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={form.control} name="subject" render={({ field }) => (
-                    <FormItem><FormLabel>Subject</FormLabel><FormControl><Input placeholder="Subject" {...field} className="cursor-target"/></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={form.control} name="message" render={({ field }) => (
-                    <FormItem><FormLabel>Message</FormLabel><FormControl><Textarea placeholder="Your message" {...field} className="cursor-target"/></FormControl><FormMessage /></FormItem>
-                  )} />
-                  <FormField control={form.control} name="consent" render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} className="cursor-target"/></FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel>I agree to the processing of my personal data.</FormLabel>
-                      </div>
-                    </FormItem>
-                  )} />
-                  <Button type="submit" className="w-full cursor-target">Send Message</Button>
-                </form>
-              </Form>
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  Book a dedicated time with our team to talk through your idea, product needs, or partnership
+                  opportunities. Pick a slot below to connect instantly.
+                </p>
+                <div
+                  className="relative w-full"
+                  style={{ minHeight: isMobile ? "520px" : "650px" }}
+                >
+                  <iframe
+                    src={`https://cal.com/yashwanth-devulapally/30min?user=yashwanth-devulapally&overlayCalendar=true&embed=true&embed_domain=${embedDomain}`}
+                    className="absolute inset-0 h-full w-full rounded-md border border-input"
+                    allow="camera; microphone; autoplay; encrypted-media"
+                    frameBorder="0"
+                    title="Schedule with Yashwanth"
+                  />
+                </div>
+              </div>
             </CardContent>
           </Card>
 
@@ -101,7 +67,7 @@ const ContactSection = () => {
               </div>
               <div className="flex items-start space-x-2">
                 <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                <span className="flex-1">+91 93682 03872 / +91 93980 97742</span>
+                <span className="flex-1">+91 93980 97742</span>
               </div>
             </div>
             <div>

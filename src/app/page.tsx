@@ -22,11 +22,11 @@ const founders = [
     linkedin: 'https://www.linkedin.com/in/yashwanth-devulapally/',
   },
   {
-    name: 'Ayush Parashar',
+    name: 'Sai Pradeep',
     title: 'Co-founder & CMO',
-    handle: 'ayush-parashar',
-    avatarUrl: '/assets/ayush.jpg',
-    linkedin: 'https://www.linkedin.com/in/ayush-parashar-7b3218239/',
+    handle: 'sai-pradeep',
+    avatarUrl: '/assets/saipradeep.png',
+    linkedin: 'https://www.linkedin.com/in/saipradeep-reddy-yeruva-a413a22a5/',
   },
   {
     name: 'Asvaan Zuhair',

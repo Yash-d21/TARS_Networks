@@ -1,8 +1,9 @@
 "use client";
 
-import { ClipboardCheck, Target, Code2, Zap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import ScrollStack, { ScrollStackItem } from '../scroll-stack';
+import { useIsMobile } from "@/hooks/use-is-mobile";
+import { ClipboardCheck, Target, Code2, Zap } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ScrollStack, { ScrollStackItem } from "../scroll-stack";
 
 const processSteps = [
   {
@@ -30,6 +31,8 @@ const processSteps = [
 
 
 const HowItWorksSection = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section id="how-it-works" className="bg-card">
       <div className="container mx-auto px-4 md:px-6">
@@ -39,26 +42,44 @@ const HowItWorksSection = () => {
             Our proven process helps transform your idea into a successful business through these key steps.
           </p>
         </div>
-        
-        <div style={{ height: '400px', position: 'relative', maxWidth: '800px', margin: '0 auto' }}>
-          <ScrollStack>
+
+        {isMobile ? (
+          <div className="space-y-6">
             {processSteps.map((step, index) => (
-              <ScrollStackItem key={index}>
-                <Card className="bg-background w-full h-full flex flex-col items-center justify-center text-center">
-                  <CardHeader>
-                    <div className="mx-auto bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-xl border-4 border-blue-400 relative">
-                      <step.icon className="w-10 h-10 text-white absolute inset-0 m-auto" />
-                    </div>
-                    <CardTitle className="font-headline">{step.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </CardContent>
-                </Card>
-              </ScrollStackItem>
+              <Card key={index} className="bg-background border border-border/60">
+                <CardHeader className="items-center text-center">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border-4 border-primary/60 bg-primary/90 text-primary-foreground shadow-lg">
+                    <step.icon className="h-8 w-8" />
+                  </div>
+                  <CardTitle className="font-headline text-xl">{step.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-muted-foreground">
+                  <p>{step.description}</p>
+                </CardContent>
+              </Card>
             ))}
-          </ScrollStack>
-        </div>
+          </div>
+        ) : (
+          <div style={{ height: "400px", position: "relative", maxWidth: "800px", margin: "0 auto" }}>
+            <ScrollStack>
+              {processSteps.map((step, index) => (
+                <ScrollStackItem key={index}>
+                  <Card className="bg-background w-full h-full flex flex-col items-center justify-center text-center">
+                    <CardHeader>
+                      <div className="mx-auto bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-xl border-4 border-blue-400 relative">
+                        <step.icon className="w-10 h-10 text-white absolute inset-0 m-auto" />
+                      </div>
+                      <CardTitle className="font-headline">{step.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </CardContent>
+                  </Card>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
+          </div>
+        )}
       </div>
     </section>
   );

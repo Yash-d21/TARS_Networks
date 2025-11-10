@@ -1,6 +1,7 @@
 "use client";
 
-import CircularGallery from '../circular-gallery';
+import { useIsMobile } from "@/hooks/use-is-mobile";
+import CircularGallery from "../circular-gallery";
 
 const testimonials = [
   { image: '/assets/1.png' },
@@ -18,6 +19,8 @@ const testimonials = [
 const galleryItems = testimonials.map(t => ({ image: t.image, text: '' }));
 
 const TestimonialsSection = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section id="testimonials" className="bg-card">
       <div className="container mx-auto px-4 md:px-6">
@@ -27,10 +30,28 @@ const TestimonialsSection = () => {
             Hear from the founders and entrepreneurs who have worked with us to build their startups.
           </p>
         </div>
-        
-        <div style={{ height: '600px', position: 'relative' }}>
-          <CircularGallery items={galleryItems} />
-        </div>
+
+        {isMobile ? (
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
+            {galleryItems.map((item, index) => (
+              <div
+                key={`${item.image}-${index}`}
+                className="snap-center flex-none w-40 sm:w-48 rounded-xl border border-border/50 bg-background/60 p-3 shadow-sm"
+              >
+                <img
+                  src={item.image}
+                  alt="Client testimonial"
+                  className="h-32 w-full rounded-lg object-cover sm:h-36"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ height: "600px", position: "relative" }}>
+            <CircularGallery items={galleryItems} />
+          </div>
+        )}
       </div>
     </section>
   );
